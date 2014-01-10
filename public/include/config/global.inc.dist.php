@@ -7,7 +7,7 @@ if (!defined('SECURITY')) die('Hacking attempt');
  * This is used in the version check to ensure you run the latest version of the configuration file.
  * Once you upgraded your config, change the version here too.
  **/
-$config['version'] = '0.0.1';
+$config['version'] = '0.0.2';
 
 // Our include directory for additional features
 define('INCLUDE_DIR', BASEPATH . 'include');
@@ -75,6 +75,18 @@ $config['wallet']['type'] = 'http';
 $config['wallet']['host'] = 'localhost:19334';
 $config['wallet']['username'] = 'testnet';
 $config['wallet']['password'] = 'testnet';
+
+/**
+ * This is used for the liquid_payout.php cronjob. The wallet address is the address you'd 
+ * like to send the liquids too. The reserve is the amount you like to keep in your MPOS wallet
+ * The threshold is the minimum amount you'd like to send each time. This prevents tiny amounts
+ * to be send each time the payout cron is triggered'
+ * 
+ * */
+
+$config['coldwallet']['address'] = '';
+$config['coldwallet']['reserve'] = 2;
+$config['coldwallet']['threshold'] = 5;
 
 /**
  * Lock account after maximum failed logins
